@@ -4367,22 +4367,22 @@ def run_similarity_pipeline(
 
 
     # Convert latitude cutoff into raster row
-    row_limit = int(
-        (
-            transform_ps.f
-            -
-            lat_cutoff
+    if lat_cutoff is None:
+        row_limit = H
+    else:
+        row_limit = int(
+            (
+                transform_ps.f - lat_cutoff
+            )
+            /
+            abs(transform_ps.e)
         )
-        /
-        abs(transform_ps.e)
-    )
 
-
-    row_limit = np.clip(
-        row_limit,
-        0,
-        H
-    )
+        row_limit = np.clip(
+            row_limit,
+            0,
+            H
+        )
 
 
 
