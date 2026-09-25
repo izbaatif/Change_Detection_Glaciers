@@ -4301,7 +4301,7 @@ def run_similarity_pipeline(
 
     # Latitude cutoff used to remove invalid
     # lower image regions
-    lat_cutoff = 36.350
+    lat_cutoff = None
 
 
 
